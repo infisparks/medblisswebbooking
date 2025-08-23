@@ -19,7 +19,7 @@ export interface BloodTest {
 }
 
 export interface HealthPackage {
-  id: number
+  id: string
   name: string
   description: string
   price: number
@@ -231,7 +231,7 @@ export const bloodTests: BloodTest[] = [
 
 export const healthPackages: HealthPackage[] = [
   {
-    id: 101,
+    id: "executive",
     name: "Executive Health Checkup",
     description: "Comprehensive health screening for working professionals",
     price: 2999,
@@ -239,7 +239,7 @@ export const healthPackages: HealthPackage[] = [
     duration: "Half day",
     category: "Premium Packages",
     parameters: 85,
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/executive-health-screening.png",
     includes: [
       "Complete Blood Count",
       "Lipid Profile",
@@ -258,7 +258,7 @@ export const healthPackages: HealthPackage[] = [
     testsIncluded: [1, 2, 3, 4, 5, 6, 7],
   },
   {
-    id: 102,
+    id: "women-wellness",
     name: "Women's Wellness Package",
     description: "Specialized health screening designed for women's health needs",
     price: 2499,
@@ -266,7 +266,7 @@ export const healthPackages: HealthPackage[] = [
     duration: "Half day",
     category: "Women's Health",
     parameters: 65,
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/women-wellness-package.png",
     includes: [
       "Complete Blood Count",
       "Thyroid Profile",
@@ -284,7 +284,7 @@ export const healthPackages: HealthPackage[] = [
     testsIncluded: [1, 4, 7, 8],
   },
   {
-    id: 103,
+    id: "senior-citizen",
     name: "Senior Citizen Package",
     description: "Comprehensive health screening for adults above 60 years",
     price: 1999,
@@ -310,7 +310,7 @@ export const healthPackages: HealthPackage[] = [
     testsIncluded: [1, 2, 3, 4, 5, 6],
   },
   {
-    id: 104,
+    id: "basic-health",
     name: "Basic Health Checkup",
     description: "Essential health screening for young adults",
     price: 999,
@@ -318,14 +318,14 @@ export const healthPackages: HealthPackage[] = [
     duration: "2 hours",
     category: "Basic Packages",
     parameters: 35,
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/basic-health-checkup.png",
     includes: ["Complete Blood Count", "Lipid Profile", "Diabetes Panel", "Liver Function Test", "Doctor Consultation"],
     suitableFor: ["Age 18-35", "First-time health screening", "Budget-conscious individuals"],
     whyChoose: "Affordable comprehensive screening covering essential health parameters",
     testsIncluded: [1, 2, 5, 3],
   },
   {
-    id: 105,
+    id: "cardiac",
     name: "Heart Health Package",
     description: "Specialized cardiovascular health assessment",
     price: 1799,
@@ -333,7 +333,7 @@ export const healthPackages: HealthPackage[] = [
     duration: "3 hours",
     category: "Specialized Packages",
     parameters: 45,
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/cardiac-health-package.png",
     includes: ["Lipid Profile", "ECG", "Echo Cardiogram", "Stress Test", "Chest X-Ray", "Cardiologist Consultation"],
     suitableFor: ["Family history of heart disease", "High cholesterol", "Hypertension"],
     whyChoose: "Comprehensive cardiovascular assessment with specialist consultation",
@@ -365,7 +365,7 @@ export const packageCategories = [
 export const getFeaturedTests = () => bloodTests.filter((test) => test.featured)
 export const getFeaturedPackages = () => healthPackages.filter((pkg) => pkg.featured)
 export const getTestById = (id: number) => bloodTests.find((test) => test.id === id)
-export const getPackageById = (id: number) => healthPackages.find((pkg) => pkg.id === id)
+export const getPackageById = (id: string) => healthPackages.find((pkg) => pkg.id === id)
 export const getTestsByCategory = (category: string) =>
   category === "All Tests" ? bloodTests : bloodTests.filter((test) => test.category === category)
 export const getPackagesByCategory = (category: string) =>

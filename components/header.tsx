@@ -59,7 +59,8 @@ export default function Header() {
             </div>
             <div className="flex items-center gap-1">
               <MapPin className="w-4 h-4" />
-              <span>Delhi, Mumbai, Bangalore</span>
+              <span>Near Bypass  Mumbra
+              </span>
             </div>
           </div>
           <div className="flex items-center gap-1">
