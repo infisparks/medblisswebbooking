@@ -50,27 +50,27 @@ export default function HeroSection() {
               </p>
             </div>
 
-            <div className="inline-flex items-center gap-2 card-modern px-3 py-2 text-primary hover-lift">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
               <div className="flex items-center gap-1">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-3 h-3 text-yellow-400 fill-current" />
                 ))}
               </div>
-              <span className="text-xs lg:text-sm font-semibold">Trusted by 50,000+</span>
-              <Award className="w-3 h-3 lg:w-4 lg:h-4 text-primary" />
+              <span className="text-xs lg:text-sm font-semibold text-white/90">Trusted by 50,000+ Users</span>
+              <Award className="w-3 h-3 lg:w-4 lg:h-4 text-yellow-400" />
             </div>
 
             {/* Special Offer */}
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 lg:px-6 lg:py-3 rounded-full lg:hidden">
               <Sparkles className="w-4 h-4 lg:w-5 lg:h-5 text-accent" />
-              <p className="text-sm lg:text-base text-accent font-bold">Premium Health Packages Starting @ ₹99</p>
+              <p className="text-base lg:text-lg text-white/70 font-semibold">Premium Health Packages Starting @ ₹99</p>
             </div>
 
             {/* Trust Indicators */}
             <div className="grid grid-cols-3 gap-3 lg:gap-4 pt-2 lg:pt-4">
               <div className="flex items-center gap-2 lg:gap-3 group">
                 <div className="w-10 h-10 lg:w-12 lg:h-12 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-xl">
-                  <Shield className="w-4 h-4 lg:w-6 lg:h-6 text-accent" />
+                  <Shield className="w-4 h-4 lg:w-6 lg:h-6 text-white/70" />
                 </div>
                 <div>
                   <div className="text-xs lg:text-sm font-bold opacity-90">100% Safe</div>
@@ -79,7 +79,7 @@ export default function HeroSection() {
               </div>
               <div className="flex items-center gap-2 lg:gap-3 group">
                 <div className="w-10 h-10 lg:w-12 lg:h-12 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-xl">
-                  <Clock className="w-4 h-4 lg:w-6 lg:h-6 text-accent" />
+                  <Clock className="w-4 h-4 lg:w-6 lg:h-6 text-white/70" />
                 </div>
                 <div>
                   <div className="text-xs lg:text-sm font-bold opacity-90">Quick Results</div>
@@ -88,7 +88,7 @@ export default function HeroSection() {
               </div>
               <div className="flex items-center gap-2 lg:gap-3 group">
                 <div className="w-10 h-10 lg:w-12 lg:h-12 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-xl">
-                  <Users className="w-4 h-4 lg:w-6 lg:h-6 text-accent" />
+                  <Users className="w-4 h-4 lg:w-6 lg:h-6 text-white/70" />
                 </div>
                 <div>
                   <div className="text-xs lg:text-sm font-bold opacity-90">Expert Team</div>
@@ -98,45 +98,48 @@ export default function HeroSection() {
             </div>
 
             <div className="hidden lg:block">
-              <Card className="card-modern p-6 text-primary-foreground hover-lift backdrop-blur-md bg-white/95 border border-white/20 shadow-2xl">
-                <div className="space-y-5">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center">
-                      <Calendar className="w-5 h-5 text-primary" />
+              <Card className="p-6 text-primary-foreground backdrop-blur-md bg-white/95 border border-white/20 shadow-2xl rounded-2xl">
+                <div className="space-y-6">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Calendar className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-primary">Book Your Health Checkup</h3>
-                      <p className="text-sm text-muted-foreground">Quick & Easy Booking Process</p>
+                      <h3 className="text-xl font-bold text-primary">Book Your Health Checkup</h3>
+                      <p className="text-sm text-muted-foreground">Quick & easy booking for all your diagnostic needs.</p>
                     </div>
                   </div>
 
-                  <div className="grid gap-4">
+                  <div className="grid gap-5">
                     <div className="space-y-2">
-                      <label className="text-sm font-semibold text-primary">Select Test/Package</label>
+                      <label htmlFor="search-package" className="text-sm font-semibold text-primary">
+                        Select Test or Package
+                      </label>
                       <div className="relative">
-                        <Search className="absolute left-4 top-3 w-5 h-5 text-muted-foreground" />
+                        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                         <input
+                          id="search-package"
                           type="text"
                           placeholder="Search for tests, packages..."
                           value={searchTerm}
                           onChange={(e) => setSearchTerm(e.target.value)}
-                          className="w-full pl-12 pr-4 py-3 input-modern placeholder-muted-foreground text-base"
+                          className="w-full pl-12 pr-4 py-3 rounded-xl border border-input bg-background text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                         />
                       </div>
                     </div>
                   </div>
 
                   <div className="flex flex-col sm:flex-row gap-3">
-                    <Button onClick={handleSearch} className="flex-1 btn-primary py-3 text-base group">
+                    <Button onClick={handleSearch} className="flex-1 h-12 text-base group rounded-xl">
                       Find Tests & Packages
                       <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                     </Button>
-                    <Link href="/login">
+                    <Link href="/login" className="flex-1">
                       <Button
                         variant="outline"
-                        className="w-full sm:w-auto border-2 border-primary/30 text-primary hover:bg-primary/10 py-3 px-6 text-base font-semibold rounded-xl transition-all duration-300 bg-transparent"
+                        className="w-full h-12 border-2 border-primary/20 text-primary hover:bg-primary/5 py-3 px-6 text-base font-semibold rounded-xl transition-all duration-300"
                       >
-                        Login
+                        Login / Sign Up
                       </Button>
                     </Link>
                   </div>
@@ -145,45 +148,48 @@ export default function HeroSection() {
             </div>
 
             <div className="lg:hidden pb-8">
-              <Card className="card-modern p-4 text-primary-foreground hover-lift backdrop-blur-md bg-white/95 border border-white/20 shadow-2xl">
+              <Card className="p-4 text-primary-foreground backdrop-blur-md bg-white/95 border border-white/20 shadow-2xl rounded-xl">
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-primary/20 rounded-xl flex items-center justify-center">
-                      <Calendar className="w-4 h-4 text-primary" />
+                    <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Calendar className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-base font-bold text-primary">Book Your Health Checkup</h3>
-                      <p className="text-xs text-muted-foreground">Quick & Easy Booking Process</p>
+                      <h3 className="text-lg font-bold text-primary">Book Your Health Checkup</h3>
+                      <p className="text-xs text-muted-foreground">Quick & easy booking for all your diagnostic needs.</p>
                     </div>
                   </div>
 
-                  <div className="grid gap-3">
+                  <div className="grid gap-4">
                     <div className="space-y-2">
-                      <label className="text-xs font-semibold text-primary">Select Test/Package</label>
+                      <label htmlFor="search-package-mobile" className="text-sm font-semibold text-primary">
+                        Select Test or Package
+                      </label>
                       <div className="relative">
-                        <Search className="absolute left-3 top-3 w-4 h-4 text-muted-foreground" />
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                         <input
+                          id="search-package-mobile"
                           type="text"
                           placeholder="Search for tests, packages..."
                           value={searchTerm}
                           onChange={(e) => setSearchTerm(e.target.value)}
-                          className="w-full pl-10 pr-3 py-3 input-modern placeholder-muted-foreground text-sm"
+                          className="w-full pl-10 pr-3 py-2 rounded-lg border border-input bg-background text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                         />
                       </div>
                     </div>
                   </div>
 
                   <div className="flex flex-col gap-3">
-                    <Button onClick={handleSearch} className="btn-primary py-3 text-sm group">
+                    <Button onClick={handleSearch} className="h-10 text-sm group rounded-lg">
                       Find Tests & Packages
                       <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                     </Button>
                     <Link href="/login">
                       <Button
                         variant="outline"
-                        className="w-full border-2 border-primary/30 text-primary hover:bg-primary/10 py-3 px-4 text-sm font-semibold rounded-xl transition-all duration-300 bg-transparent"
+                        className="w-full h-10 border-2 border-primary/20 text-primary hover:bg-primary/5 px-4 text-sm font-semibold rounded-lg transition-all duration-300"
                       >
-                        Login
+                        Login / Sign Up
                       </Button>
                     </Link>
                   </div>

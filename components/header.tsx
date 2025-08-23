@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Menu, X, Phone, MapPin, Clock, ShoppingCart, User } from "lucide-react"
+import Image from "next/image"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -74,7 +75,9 @@ export default function Header() {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center">
-              <div className="text-2xl font-bold text-primary font-heading">MedBliss</div>
+              <a href="/">
+                <Image src="/img/logo.png" alt="MedBliss Logo" width={220} height={40} priority />
+              </a>
             </div>
 
             {/* Desktop Navigation */}
