@@ -108,10 +108,12 @@ export default function ProductBooking() {
                             <Clock className="w-3 h-3" />
                             {product.duration}
                           </span>
-                          <span className="flex items-center gap-1">
-                            <Shield className="w-3 h-3" />
-                            {product.fasting}
-                          </span>
+                          {product.category === "blood" && "fasting" in product && (
+                            <span className="flex items-center gap-1">
+                              <Shield className="w-3 h-3" />
+                              {product.fasting}
+                            </span>
+                          )}
                         </div>
                       </div>
                       <div className="text-right">
