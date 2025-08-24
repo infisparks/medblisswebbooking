@@ -59,18 +59,20 @@ export default function PackagesSection() {
             align: "start",
             loop: true,
           }}
-          className="w-full lg:hidden mb-12"
+          // ↓↓↓ THIS IS THE FIX: Allow content to overflow the container ↓↓↓
+          className="w-full lg:hidden mb-12 overflow-visible"
         >
+          {/* ↓↓↓ Padding removed from here to eliminate the gap ↓↓↓ */}
           <CarouselContent className="-ml-4">
-            {featuredPackages.map((pkg) => (
-              <CarouselItem key={pkg.id} className="pl-4 md:basis-1/2">
+            {featuredPackages.map((pkg, index) => (
+              <CarouselItem key={`${pkg.id}-${index}`} className="pl-4 md:basis-1/2 pt-4">
                 <Card
                   className={`relative hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group h-full flex flex-col ${
                     pkg.featured ? "ring-2 ring-primary shadow-lg" : "overflow-hidden"
                   }`}
                 >
                   {pkg.featured && (
-                    <div className="absolute top-2 left-1/2 -translate-x-1/2 z-20 sm:-top-3">
+                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
                       <Badge className="bg-gradient-to-r from-primary to-accent text-white px-3 py-1 text-xs sm:text-sm shadow-lg">
                         <Star className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
                         Most Popular
@@ -86,7 +88,6 @@ export default function PackagesSection() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
 
-                    {/* Package icon overlay */}
                     <div className="absolute top-4 right-4">
                       <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
                         {pkg.category === "Heart Health" || pkg.name.toLowerCase().includes("heart") ? (
@@ -99,7 +100,6 @@ export default function PackagesSection() {
                       </div>
                     </div>
 
-                    {/* Price overlay */}
                     <div className="absolute bottom-4 left-4">
                       <div className="flex items-center gap-2">
                         <span className="text-2xl font-bold text-white">₹{pkg.price}</span>
@@ -147,16 +147,16 @@ export default function PackagesSection() {
         </Carousel>
 
         {/* Desktop Grid */}
-        <div className="hidden lg:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {featuredPackages.map((pkg) => (
+        <div className="hidden lg:grid md:grid-cols-2 lg:grid-cols-3 gap-8 pt-4">
+          {featuredPackages.map((pkg, index) => (
             <Card
-              key={pkg.id}
+              key={`${pkg.id}-${index}`}
               className={`relative hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group h-full flex flex-col ${
                 pkg.featured ? "ring-2 ring-primary shadow-lg" : "overflow-hidden"
               }`}
             >
               {pkg.featured && (
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-20">
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
                   <Badge className="bg-gradient-to-r from-primary to-accent text-white px-4 py-1 shadow-lg">
                     <Star className="w-4 h-4 mr-1" />
                     Most Popular
@@ -172,7 +172,6 @@ export default function PackagesSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
 
-                {/* Package icon overlay */}
                 <div className="absolute top-4 right-4">
                   <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
                     {pkg.category === "Heart Health" || pkg.name.toLowerCase().includes("heart") ? (
@@ -185,7 +184,6 @@ export default function PackagesSection() {
                   </div>
                 </div>
 
-                {/* Price overlay */}
                 <div className="absolute bottom-4 left-4">
                   <div className="flex items-center gap-2">
                     <span className="text-2xl font-bold text-white">₹{pkg.price}</span>

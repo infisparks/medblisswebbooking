@@ -108,4 +108,5 @@ export const mockBookings: BookingDetails[] = [
     updatedAt: "2025-08-22T14:15:00Z",
     homeCollection: false,
   },
+  
 ]
